@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello User{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+    <h1 class="my-5">Hello!</h1>
+    <form method="post">
+    <div class="clearfix mb-5">
+        <h5 class="mb-4">Is Palindrome?</h5>
+        <div class="row g-3">
+            <div class="col-5">
+                <label for="palindromeWord" class="form-label">
+                    Palindrome Word
+                </label>
+                <div class="input-group">
+                    <input type="text" class="form-control" name="palindromeWord" id="palindromeWord" value="{{ palindromeWord ?? '' }}"/>
+                    <div class="input-group-text"><i class="fas fa-{{ isPalindrome is null ? 'question text-primary' : isPalindrome ? 'check text-success' : 'times text-danger' }}"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix mb-5">
+        <h5 class="mb-4">Is Anagram?</h5>
+        <div class="row g-3">
+            <div class="col-5">
+                <label for="anagramWord" class="form-label">
+                    Word
+                </label>
+                <input type="text" class="form-control" name="anagram[word]" id="anagramWord" value="{{ anagram['word'] ?? '' }}"/>
+            </div>
+            <div class="col-5">
+                <label for="anagramComparison" class="form-label">
+                    Comparison
+                </label>
+                <div class="input-group">
+                    <input type="text" class="form-control" name="anagram[comparison]" id="anagramComparison" value="{{ anagram['comparison'] ?? '' }}"/>
+                    <div class="input-group-text"><i class="fas fa-{{ isAnagram is null ? 'question text-primary' : isAnagram ? 'check text-success' : 'times text-danger' }}"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix mb-5">
+        <h5 class="mb-4">Is Pangram?</h5>
+        <div class="row g-3">
+            <div class="col-10">
+                <label for="pangramPhrase" class="form-label">
+                    Pangram Phrase
+                </label>
+                <div class="input-group">
+                    <input type="text" class="form-control" name="pangramPhrase" id="pangramPhrase" value="{{ pangramPhrase ?? '' }}"/>
+                    <div class="input-group-text"><i class="fas fa-{{ isPangram is null ? 'question text-primary' : isPangram ? 'check text-success' : 'times text-danger' }}"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix">
+        <button type="submit" class="btn btn-primary">Check</button>
+    </div>
+    </form>
+
+</div>
+{% endblock %}
